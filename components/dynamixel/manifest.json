@@ -1,0 +1,19 @@
+{
+  "type": "component",
+  "name": "Dynamixel",
+  "files": [
+    "dynamixel_component.cpp",
+    "dynamixel_component.h",
+    "dynamixel_device.cpp",
+    "dynamixel_device.h",
+    "dynamixel_types.h",
+    "protocol_v1.cpp",
+    "protocol_v1.h",
+    "protocol_v2.cpp",
+    "protocol_v2.h",
+    "__init__.py"
+  ],
+  "dependencies": [
+    "uart"
+  ]
+}
