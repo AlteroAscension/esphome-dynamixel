@@ -44,3 +44,6 @@ dynamixel:
         - { name: "goal_position", address: 116, length: 4, access: "rw" }
         - { name: "present_position", address: 132, length: 4, access: "r" }
 ```
+
+## XM430 example
+See `example_xm430.yaml` for a more complete XM430 (servo 431) register set.
