@@ -34,6 +34,7 @@ class DynamixelComponent : public Component, public uart::UARTDevice {
   // Helpers using device definitions
   bool read_register(uint8_t id, const std::string &reg_name, std::vector<uint8_t> &out);
   bool write_register(uint8_t id, const std::string &reg_name, const std::vector<uint8_t> &data);
+  const RegisterDef *find_register(uint8_t id, const std::string &reg_name) const;
 
   void setup() override;
   void dump_config() override;
