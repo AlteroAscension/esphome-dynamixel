@@ -14,6 +14,8 @@
     "dynamixel_number.h",
     "dynamixel_select.cpp",
     "dynamixel_select.h",
+    "dynamixel_bitsensor.cpp",
+    "dynamixel_bitsensor.h",
     "dynamixel_types.h",
     "protocol_v1.cpp",
     "protocol_v1.h",
@@ -23,10 +25,12 @@
     "switch.py",
     "number.py",
     "select.py",
+    "binary_sensor.py",
     "__init__.py"
   ],
   "dependencies": [
     "uart",
-    "select"
+    "select",
+    "binary_sensor"
   ]
 }
