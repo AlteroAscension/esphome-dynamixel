@@ -48,6 +48,9 @@ dynamixel:
 ## XM430 example
 See `example_xm430.yaml` for a more complete XM430 (servo 431) register set.
 
+## AR_ID64 example
+See `example_ar_id64.yaml` for a Protocol 1.0 device example with custom registers.
+
 ## Home Assistant controls
 You can add `switch`, `number`, `sensor`, and `select` entities that bind to registers by name.
 Use `dxl_device_id` to point to the servo ID (not `device_id`).
