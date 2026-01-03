@@ -51,4 +51,5 @@ See `example_xm430.yaml` for a more complete XM430 (servo 431) register set.
 ## Home Assistant controls
 You can add `switch`, `number`, and `sensor` entities that bind to registers by name.
 Use `dxl_device_id` to point to the servo ID (not `device_id`).
+`number` supports `multiply`/`offset` to map units (for example, degrees to ticks).
 See `example_xm430.yaml` for torque/LED switches, a goal position slider, and telemetry sensors.
