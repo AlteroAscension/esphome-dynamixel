@@ -69,3 +69,61 @@ dynamixel:
         - { name: "reg_42", address: 42, length: 1, access: "r" }
         - { name: "reg_43", address: 43, length: 1, access: "r" }
         - { name: "reg_44", address: 44, length: 1, access: "r" }
+
+switch:
+  - platform: dynamixel
+    name: "AR_ID64 Undercurrent Timeout Disable"
+    dynamixel_id: dxl
+    dxl_device_id: 64
+    register: "undercurr_timeout_dis_flag_on_start"
+
+select:
+  - platform: dynamixel
+    name: "AR_ID64 Output Voltage"
+    dynamixel_id: dxl
+    dxl_device_id: 64
+    register: "out_voltage_v"
+    options:
+      - { name: "9V", value: 9 }
+      - { name: "12V", value: 12 }
+
+number:
+  - platform: dynamixel
+    name: "AR_ID64 Max Output Current (mA)"
+    dynamixel_id: dxl
+    dxl_device_id: 64
+    register: "out_max_current_ma"
+    min_value: 1000
+    max_value: 5000
+    step: 10
+
+  - platform: dynamixel
+    name: "AR_ID64 Undercurrent Timeout (s)"
+    dynamixel_id: dxl
+    dxl_device_id: 64
+    register: "undercurrent_timeout_s"
+    min_value: 20
+    max_value: 3600
+    step: 1
+
+sensor:
+  - platform: dynamixel
+    name: "AR_ID64 Firmware Version"
+    dynamixel_id: dxl
+    dxl_device_id: 64
+    register: "firmware_version"
+    update_interval: 30s
+
+  - platform: dynamixel
+    name: "AR_ID64 Model Number (L)"
+    dynamixel_id: dxl
+    dxl_device_id: 64
+    register: "model_number_l"
+    update_interval: 30s
+
+  - platform: dynamixel
+    name: "AR_ID64 Model Number (H)"
+    dynamixel_id: dxl
+    dxl_device_id: 64
+    register: "model_number_h"
+    update_interval: 30s
