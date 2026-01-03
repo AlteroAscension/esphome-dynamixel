@@ -28,47 +28,27 @@ dynamixel:
       device_id: 64
       protocol: 1
       registers:
-        - { name: "model_number_l", address: 0, length: 1, access: "r" }
-        - { name: "model_number_h", address: 1, length: 1, access: "r" }
+        - { name: "model_number", address: 0, length: 2, access: "r" }
         - { name: "firmware_version", address: 2, length: 1, access: "r" }
         - { name: "id", address: 3, length: 1, access: "rw" }
         - { name: "baud_rate", address: 4, length: 1, access: "rw" }
         - { name: "return_delay_time", address: 5, length: 1, access: "rw" }
         - { name: "out_voltage_v", address: 6, length: 1, access: "rw" }
-        - { name: "out_curr_coeff_offset_s", address: 8, length: 1, access: "rw" }
         - { name: "vcl1_voltage_offset_mv_s", address: 9, length: 1, access: "rw" }
         - { name: "batt_voltage_offset_mv_s", address: 10, length: 1, access: "rw" }
         - { name: "out_current_offset_ma_s", address: 11, length: 2, access: "rw" }
         - { name: "undercurr_timeout_dis_flag_on_start", address: 13, length: 1, access: "rw" }
         - { name: "out_max_current_ma", address: 14, length: 2, access: "rw" }
         - { name: "undercurrent_timeout_s", address: 16, length: 2, access: "rw" }
-        - { name: "reg_18", address: 18, length: 1, access: "rw" }
-        - { name: "reg_19", address: 19, length: 1, access: "rw" }
-        - { name: "reg_20", address: 20, length: 1, access: "rw" }
-        - { name: "reg_21", address: 21, length: 1, access: "r" }
-        - { name: "reg_22", address: 22, length: 1, access: "rw" }
-        - { name: "reg_23", address: 23, length: 1, access: "rw" }
-        - { name: "reg_24", address: 24, length: 1, access: "w" }
-        - { name: "reg_25", address: 25, length: 1, access: "rw" }
-        - { name: "reg_26", address: 26, length: 1, access: "rw" }
-        - { name: "reg_27", address: 27, length: 1, access: "r" }
-        - { name: "reg_28", address: 28, length: 1, access: "r" }
-        - { name: "reg_29", address: 29, length: 1, access: "rw" }
-        - { name: "reg_30", address: 30, length: 1, access: "rw" }
-        - { name: "reg_31", address: 31, length: 1, access: "r" }
-        - { name: "reg_32", address: 32, length: 1, access: "r" }
-        - { name: "reg_33", address: 33, length: 1, access: "r" }
-        - { name: "reg_34", address: 34, length: 1, access: "r" }
-        - { name: "reg_35", address: 35, length: 1, access: "r" }
-        - { name: "reg_36", address: 36, length: 1, access: "r" }
-        - { name: "reg_37", address: 37, length: 1, access: "r" }
-        - { name: "reg_38", address: 38, length: 1, access: "r" }
-        - { name: "reg_39", address: 39, length: 1, access: "r" }
-        - { name: "reg_40", address: 40, length: 1, access: "r" }
-        - { name: "reg_41", address: 41, length: 1, access: "r" }
-        - { name: "reg_42", address: 42, length: 1, access: "r" }
-        - { name: "reg_43", address: 43, length: 1, access: "r" }
-        - { name: "reg_44", address: 44, length: 1, access: "r" }
+        - { name: "batt_level", address: 20, length: 1, access: "rw" }
+        - { name: "reset_trigger", address: 23, length: 1, access: "rw" }
+        - { name: "undercurr_timeout_dis_flag", address: 24, length: 1, access: "w" }
+        - { name: "out_current_ma", address: 26, length: 2, access: "r" }
+        - { name: "registered", address: 29, length: 1, access: "r" }
+        - { name: "batt_voltage_mv", address: 30, length: 2, access: "r" }
+        - { name: "vcl1_voltage_mv", address: 32, length: 2, access: "r" }
+        - { name: "vcl2_voltage_mv", address: 34, length: 2, access: "r" }
+        - { name: "fault_and_stat", address: 36, length: 1, access: "r" }
 
 switch:
   - platform: dynamixel
@@ -115,15 +95,48 @@ sensor:
     update_interval: 30s
 
   - platform: dynamixel
-    name: "AR_ID64 Model Number (L)"
+    name: "AR_ID64 Model Number"
     dynamixel_id: dxl
     dxl_device_id: 64
-    register: "model_number_l"
+    register: "model_number"
     update_interval: 30s
 
   - platform: dynamixel
-    name: "AR_ID64 Model Number (H)"
+    name: "AR_ID64 Output Current"
     dynamixel_id: dxl
     dxl_device_id: 64
-    register: "model_number_h"
-    update_interval: 30s
+    register: "out_current_ma"
+    update_interval: 1s
+    signed: true
+    unit_of_measurement: "mA"
+
+  - platform: dynamixel
+    name: "AR_ID64 Battery Voltage"
+    dynamixel_id: dxl
+    dxl_device_id: 64
+    register: "batt_voltage_mv"
+    update_interval: 1s
+    unit_of_measurement: "mV"
+
+  - platform: dynamixel
+    name: "AR_ID64 VCL1 Voltage"
+    dynamixel_id: dxl
+    dxl_device_id: 64
+    register: "vcl1_voltage_mv"
+    update_interval: 1s
+    unit_of_measurement: "mV"
+
+  - platform: dynamixel
+    name: "AR_ID64 VCL2 Voltage"
+    dynamixel_id: dxl
+    dxl_device_id: 64
+    register: "vcl2_voltage_mv"
+    update_interval: 1s
+    unit_of_measurement: "mV"
+
+  - platform: dynamixel
+    name: "AR_ID64 Fault/Status"
+    dynamixel_id: dxl
+    dxl_device_id: 64
+    register: "fault_and_stat"
+    update_interval: 1s
