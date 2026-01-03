@@ -19,8 +19,6 @@ CONFIG_SCHEMA = number.number_schema(DynamixelNumber).extend(
         cv.Optional("min_value"): cv.float_,
         cv.Optional("max_value"): cv.float_,
         cv.Optional("step"): cv.float_,
-        cv.Optional("mode"): cv.one_of("auto", "box", "slider", "slider_box", lower=True),
-        cv.Optional("unit_of_measurement"): cv.string,
     }
 )
 
@@ -36,13 +34,3 @@ async def to_code(config):
     cg.add(var.set_parent(parent))
     cg.add(var.set_device_id(config[CONF_DXL_DEVICE_ID]))
     cg.add(var.set_register_name(config["register"]))
-    if "min_value" in config:
-        cg.add(var.set_min_value(config["min_value"]))
-    if "max_value" in config:
-        cg.add(var.set_max_value(config["max_value"]))
-    if "step" in config:
-        cg.add(var.set_step(config["step"]))
-    if "mode" in config:
-        cg.add(var.set_mode(config["mode"]))
-    if "unit_of_measurement" in config:
-        cg.add(var.set_unit_of_measurement(config["unit_of_measurement"]))
