@@ -57,6 +57,18 @@ switch:
     dxl_device_id: 64
     register: "undercurr_timeout_dis_flag_on_start"
 
+  - platform: dynamixel
+    name: "AR_ID64 Reset Trigger"
+    dynamixel_id: dxl
+    dxl_device_id: 64
+    register: "reset_trigger"
+
+  - platform: dynamixel
+    name: "AR_ID64 Undercurrent Timeout Disable (runtime)"
+    dynamixel_id: dxl
+    dxl_device_id: 64
+    register: "undercurr_timeout_dis_flag"
+
 select:
   - platform: dynamixel
     name: "AR_ID64 Output Voltage"
@@ -68,6 +80,15 @@ select:
       - { name: "12V", value: 12 }
 
 number:
+  - platform: dynamixel
+    name: "AR_ID64 Battery Level"
+    dynamixel_id: dxl
+    dxl_device_id: 64
+    register: "batt_level"
+    min_value: 0
+    max_value: 100
+    step: 1
+
   - platform: dynamixel
     name: "AR_ID64 Max Output Current (mA)"
     dynamixel_id: dxl
