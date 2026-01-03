@@ -12,6 +12,10 @@ class DynamixelNumber : public number::Number {
   void set_parent(DynamixelComponent *parent) { this->parent_ = parent; }
   void set_device_id(uint8_t device_id) { this->device_id_ = device_id; }
   void set_register_name(const std::string &name) { this->register_name_ = name; }
+  void set_scale(float multiply, float offset) {
+    this->multiply_ = multiply;
+    this->offset_ = offset;
+  }
 
  protected:
   void control(float value) override;
@@ -21,6 +25,8 @@ class DynamixelNumber : public number::Number {
   uint8_t device_id_{0};
   std::string register_name_;
   const RegisterDef *reg_{nullptr};
+  float multiply_{1.0f};
+  float offset_{0.0f};
 };
 
 }  // namespace dynamixel
