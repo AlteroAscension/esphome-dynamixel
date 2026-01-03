@@ -6,14 +6,26 @@
     "dynamixel_component.h",
     "dynamixel_device.cpp",
     "dynamixel_device.h",
+    "dynamixel_sensor.cpp",
+    "dynamixel_sensor.h",
+    "dynamixel_switch.cpp",
+    "dynamixel_switch.h",
+    "dynamixel_number.cpp",
+    "dynamixel_number.h",
     "dynamixel_types.h",
     "protocol_v1.cpp",
     "protocol_v1.h",
     "protocol_v2.cpp",
     "protocol_v2.h",
+    "sensor.py",
+    "switch.py",
+    "number.py",
     "__init__.py"
   ],
   "dependencies": [
-    "uart"
+    "uart",
+    "sensor",
+    "switch",
+    "number"
   ]
 }
