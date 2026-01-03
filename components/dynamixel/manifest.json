@@ -12,6 +12,8 @@
     "dynamixel_switch.h",
     "dynamixel_number.cpp",
     "dynamixel_number.h",
+    "dynamixel_select.cpp",
+    "dynamixel_select.h",
     "dynamixel_types.h",
     "protocol_v1.cpp",
     "protocol_v1.h",
@@ -20,9 +22,11 @@
     "sensor.py",
     "switch.py",
     "number.py",
+    "select.py",
     "__init__.py"
   ],
   "dependencies": [
-    "uart"
+    "uart",
+    "select"
   ]
 }
