@@ -27,5 +27,10 @@
     "sensor",
     "switch",
     "number"
+  ],
+  "platforms": [
+    "sensor",
+    "switch",
+    "number"
   ]
 }
