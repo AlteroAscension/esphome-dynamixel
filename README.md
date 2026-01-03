@@ -12,8 +12,8 @@ External ESPHome component for Dynamixel servos with Protocol 1.0 and 2.0 suppor
 ```yaml
 external_components:
   - source:
-      type: github
-      repository: yourname/esphome-dynamixel
+      type: git
+      url: https://github.com/yourname/esphome-dynamixel
       ref: main
     components: [dynamixel]
 ```
@@ -47,3 +47,7 @@ dynamixel:
 
 ## XM430 example
 See `example_xm430.yaml` for a more complete XM430 (servo 431) register set.
+
+## Home Assistant controls
+You can add `switch`, `number`, and `sensor` entities that bind to registers by name.
+See `example_xm430.yaml` for torque/LED switches, a goal position slider, and telemetry sensors.
