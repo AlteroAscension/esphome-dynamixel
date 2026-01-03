@@ -17,20 +17,9 @@
     "protocol_v1.h",
     "protocol_v2.cpp",
     "protocol_v2.h",
-    "sensor.py",
-    "switch.py",
-    "number.py",
     "__init__.py"
   ],
   "dependencies": [
-    "uart",
-    "sensor",
-    "switch",
-    "number"
-  ],
-  "platforms": [
-    "sensor",
-    "switch",
-    "number"
+    "uart"
   ]
 }
