@@ -161,3 +161,53 @@ sensor:
     dxl_device_id: 64
     register: "fault_and_stat"
     update_interval: 1s
+
+binary_sensor:
+  - platform: dynamixel
+    name: "AR_ID64 PWOUTEN"
+    dynamixel_id: dxl
+    dxl_device_id: 64
+    register: "fault_and_stat"
+    bit: 7
+
+  - platform: dynamixel
+    name: "AR_ID64 FULCHRG"
+    dynamixel_id: dxl
+    dxl_device_id: 64
+    register: "fault_and_stat"
+    bit: 6
+
+  - platform: dynamixel
+    name: "AR_ID64 CHRGING"
+    dynamixel_id: dxl
+    dxl_device_id: 64
+    register: "fault_and_stat"
+    bit: 5
+
+  - platform: dynamixel
+    name: "AR_ID64 EXTSUPL"
+    dynamixel_id: dxl
+    dxl_device_id: 64
+    register: "fault_and_stat"
+    bit: 4
+
+  - platform: dynamixel
+    name: "AR_ID64 BATDISB"
+    dynamixel_id: dxl
+    dxl_device_id: 64
+    register: "fault_and_stat"
+    bit: 2
+
+  - platform: dynamixel
+    name: "AR_ID64 OVRCURR"
+    dynamixel_id: dxl
+    dxl_device_id: 64
+    register: "fault_and_stat"
+    bit: 1
+
+  - platform: dynamixel
+    name: "AR_ID64 DISCHRG"
+    dynamixel_id: dxl
+    dxl_device_id: 64
+    register: "fault_and_stat"
+    bit: 0
