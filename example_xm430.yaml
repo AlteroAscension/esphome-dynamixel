@@ -48,20 +48,20 @@ switch:
   - platform: dynamixel
     name: "XM430 Torque"
     dynamixel_id: dxl
-    device_id: 1
+    dxl_device_id: 1
     register: "torque_enable"
 
   - platform: dynamixel
     name: "XM430 LED"
     dynamixel_id: dxl
-    device_id: 1
+    dxl_device_id: 1
     register: "led"
 
 number:
   - platform: dynamixel
     name: "XM430 Goal Position"
     dynamixel_id: dxl
-    device_id: 1
+    dxl_device_id: 1
     register: "goal_position"
     min_value: 0
     max_value: 4095
@@ -73,7 +73,7 @@ sensor:
   - platform: dynamixel
     name: "XM430 Present Position"
     dynamixel_id: dxl
-    device_id: 1
+    dxl_device_id: 1
     register: "present_position"
     update_interval: 200ms
     unit_of_measurement: "ticks"
@@ -81,14 +81,14 @@ sensor:
   - platform: dynamixel
     name: "XM430 Present Velocity"
     dynamixel_id: dxl
-    device_id: 1
+    dxl_device_id: 1
     register: "present_velocity"
     update_interval: 200ms
 
   - platform: dynamixel
     name: "XM430 Present Current"
     dynamixel_id: dxl
-    device_id: 1
+    dxl_device_id: 1
     register: "present_current"
     update_interval: 500ms
     signed: true
@@ -98,7 +98,7 @@ sensor:
   - platform: dynamixel
     name: "XM430 Present Voltage"
     dynamixel_id: dxl
-    device_id: 1
+    dxl_device_id: 1
     register: "present_input_voltage"
     update_interval: 1s
     multiply: 0.1
