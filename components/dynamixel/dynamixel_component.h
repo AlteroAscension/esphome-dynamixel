@@ -35,6 +35,8 @@ class DynamixelComponent : public Component, public uart::UARTDevice {
   bool read_register(uint8_t id, const std::string &reg_name, std::vector<uint8_t> &out);
   bool write_register(uint8_t id, const std::string &reg_name, const std::vector<uint8_t> &data);
   const RegisterDef *find_register(uint8_t id, const std::string &reg_name) const;
+  void add_device_bit_sensor(uint8_t device_id, const std::string &name,
+                             const std::string &reg_name, uint8_t bit);
 
   void setup() override;
   void dump_config() override;
