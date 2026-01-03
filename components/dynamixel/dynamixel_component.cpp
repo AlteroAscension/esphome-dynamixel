@@ -41,6 +41,15 @@ void DynamixelComponent::add_device_register(uint8_t device_id, const std::strin
   }
 }
 
+void DynamixelComponent::add_device_bit_sensor(uint8_t device_id, const std::string &name,
+                                               const std::string &reg_name, uint8_t bit) {
+  (void) device_id;
+  (void) name;
+  (void) reg_name;
+  (void) bit;
+  // No-op placeholder to keep codegen compatibility if needed later.
+}
+
 bool DynamixelComponent::ping(uint8_t id, ProtocolVersion protocol) {
   std::vector<uint8_t> packet;
   if (protocol == ProtocolVersion::V1) {
