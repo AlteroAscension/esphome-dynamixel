@@ -15,6 +15,7 @@ external_components:
       type: git
       url: https://github.com/yourname/esphome-dynamixel
       ref: main
+    components: [dynamixel]
 ```
 
 ## Example ESPHome config
