@@ -57,6 +57,18 @@ switch:
     dxl_device_id: 1
     register: "led"
 
+select:
+  - platform: dynamixel
+    name: "XM430 Operating Mode"
+    dynamixel_id: dxl
+    dxl_device_id: 1
+    register: "operating_mode"
+    options:
+      - { name: "Velocity (1)", value: 1 }
+      - { name: "Position (3)", value: 3 }
+      - { name: "Extended Position (4)", value: 4 }
+      - { name: "PWM (16)", value: 16 }
+
 number:
   - platform: dynamixel
     name: "XM430 Goal Position (deg)"
