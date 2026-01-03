@@ -152,7 +152,7 @@ void DynamixelComponent::dump_config() {
   ESP_LOGCONFIG(TAG, "Dynamixel:");
   ESP_LOGCONFIG(TAG, "  Default protocol: %u", this->default_protocol_ == ProtocolVersion::V1 ? 1 : 2);
   if (this->direction_pin_ != nullptr) {
-    ESP_LOGCONFIG(TAG, "  Direction pin: %u", this->direction_pin_->get_pin());
+    ESP_LOGCONFIG(TAG, "  Direction pin: configured");
   }
   ESP_LOGCONFIG(TAG, "  Devices: %u", static_cast<unsigned>(this->devices_.size()));
 }
