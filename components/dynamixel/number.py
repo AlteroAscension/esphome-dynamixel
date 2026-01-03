@@ -27,7 +27,10 @@ CONFIG_SCHEMA = number.number_schema(DynamixelNumber).extend(
 
 async def to_code(config):
     var = cg.new_Pvariable(config[CONF_ID])
-    await number.register_number(var, config)
+    min_value = config.get("min_value", 0.0)
+    max_value = config.get("max_value", 0.0)
+    step = config.get("step", 1.0)
+    await number.register_number(var, config, min_value=min_value, max_value=max_value, step=step)
 
     parent = await cg.get_variable(config["dynamixel_id"])
     cg.add(var.set_parent(parent))
