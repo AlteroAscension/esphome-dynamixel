@@ -29,7 +29,8 @@ void DynamixelNumber::control(float value) {
   if (!this->resolve_register_()) {
     return;
   }
-  int32_t v = static_cast<int32_t>(lroundf(value));
+  float scaled = value * this->multiply_ + this->offset_;
+  int32_t v = static_cast<int32_t>(lroundf(scaled));
   std::vector<uint8_t> data;
   if (this->reg_->length == 1) {
     data = {static_cast<uint8_t>(v & 0xFF)};
