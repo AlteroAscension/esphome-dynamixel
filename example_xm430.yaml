@@ -1,7 +1,7 @@
 external_components:
   - source:
-      type: github
-      repository: AlteroAscension/esphome-dynamixel
+      type: git
+      url: https://github.com/AlteroAscension/esphome-dynamixel
       ref: main
     components: [dynamixel]
 
@@ -36,8 +36,70 @@ dynamixel:
         - { name: "profile_velocity", address: 112, length: 4, access: "rw" }
         - { name: "goal_velocity", address: 104, length: 4, access: "rw" }
         - { name: "goal_position", address: 116, length: 4, access: "rw" }
+        - { name: "present_current", address: 126, length: 2, access: "r" }
         - { name: "present_velocity", address: 128, length: 4, access: "r" }
         - { name: "present_position", address: 132, length: 4, access: "r" }
+        - { name: "present_input_voltage", address: 144, length: 2, access: "r" }
         - { name: "position_d_gain", address: 80, length: 2, access: "rw" }
         - { name: "position_i_gain", address: 82, length: 2, access: "rw" }
         - { name: "position_p_gain", address: 84, length: 2, access: "rw" }
+
+switch:
+  - platform: dynamixel
+    name: "XM430 Torque"
+    dynamixel_id: dxl
+    device_id: 1
+    register: "torque_enable"
+
+  - platform: dynamixel
+    name: "XM430 LED"
+    dynamixel_id: dxl
+    device_id: 1
+    register: "led"
+
+number:
+  - platform: dynamixel
+    name: "XM430 Goal Position"
+    dynamixel_id: dxl
+    device_id: 1
+    register: "goal_position"
+    min_value: 0
+    max_value: 4095
+    step: 1
+    unit_of_measurement: "ticks"
+    mode: slider
+
+sensor:
+  - platform: dynamixel
+    name: "XM430 Present Position"
+    dynamixel_id: dxl
+    device_id: 1
+    register: "present_position"
+    update_interval: 200ms
+    unit_of_measurement: "ticks"
+
+  - platform: dynamixel
+    name: "XM430 Present Velocity"
+    dynamixel_id: dxl
+    device_id: 1
+    register: "present_velocity"
+    update_interval: 200ms
+
+  - platform: dynamixel
+    name: "XM430 Present Current"
+    dynamixel_id: dxl
+    device_id: 1
+    register: "present_current"
+    update_interval: 500ms
+    signed: true
+    multiply: 0.00269
+    unit_of_measurement: "A"
+
+  - platform: dynamixel
+    name: "XM430 Present Voltage"
+    dynamixel_id: dxl
+    device_id: 1
+    register: "present_input_voltage"
+    update_interval: 1s
+    multiply: 0.1
+    unit_of_measurement: "V"
