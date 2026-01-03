@@ -148,6 +148,16 @@ bool DynamixelComponent::write_register(uint8_t id, const std::string &reg_name,
   return false;
 }
 
+const RegisterDef *DynamixelComponent::find_register(uint8_t id,
+                                                     const std::string &reg_name) const {
+  for (const auto &dev : this->devices_) {
+    if (dev.get_device_id() == id) {
+      return dev.find_register(reg_name);
+    }
+  }
+  return nullptr;
+}
+
 void DynamixelComponent::dump_config() {
   ESP_LOGCONFIG(TAG, "Dynamixel:");
   ESP_LOGCONFIG(TAG, "  Default protocol: %u", this->default_protocol_ == ProtocolVersion::V1 ? 1 : 2);
